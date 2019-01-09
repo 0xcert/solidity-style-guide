@@ -1,9 +1,8 @@
-
-# Style Guide
+# 0xcert Solidity Style Guide
 
 ## Introduction
 
-This guide is based on solidity style guide that can be found here:
+This guide is based on the Solidity style guide that can be found here:
 https://github.com/ethereum/solidity/blob/v0.5.1/docs/style-guide.rst. It mostly follows the guide
 line but with slight changes and more specific restrictions. 
 
