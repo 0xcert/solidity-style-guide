@@ -93,15 +93,15 @@ No
 Yes
 
     event ShortOneArg(
-      address sender
+      address _sender
     );
     
     event LongAndLotsOfArgs(
-      address sender,
-      address recipient,
-      uint256 publicKey,
-      uint256 amount,
-      bytes32[] options
+      address _sender,
+      address _recipient,
+      uint256 _publicKey,
+      uint256 _amount,
+      bytes32[] _options
     );
     
     emit LongAndLotsOfArgs(
@@ -116,13 +116,13 @@ Yes
 
 No
 
-    event ShortOneArg(address sender);
+    event ShortOneArg(address _sender);
     
-    event LongAndLotsOfArgs(address sender,
-                            address recipient,
-                            uint256 publicKey,
-                            uint256 amount,
-                            bytes32[] options);
+    event LongAndLotsOfArgs(address _sender,
+                            address _recipient,
+                            uint256 _publicKey,
+                            uint256 _amount,
+                            bytes32[] _options);
     
     emit LongAndLotsOfArgs(sender,
                       recipient,
@@ -162,11 +162,11 @@ Yes
       uint256 someVariable;
     
       event SomeEvent(
-        uint256 arg1
+        uint256 _arg1
       );
     
       modifier SomeModifier(
-        uint256 arg1
+        uint256 _arg1
       )
       {
         // some check
@@ -395,7 +395,7 @@ Yes
     }
     
     function thisFunctionHasAnArgument(
-      address a
+      address _a
     )
       public
     {
@@ -403,12 +403,12 @@ Yes
     }
     
     function thisFunctionHasLotsOfArguments(
-      address a,
-      address b,
-      address c,
-      address d,
-      address e,
-      address f
+      address _a,
+      address _b,
+      address _c,
+      address _d,
+      address _e,
+      address _f
     )
       public
     {
@@ -422,31 +422,31 @@ No
       doSomething();
     }
     
-    function thisFunctionHasAnArgument(address a) public {
+    function thisFunctionHasAnArgument(address _a) public {
       doSomething();
     }
     
-    function thisFunctionHasLotsOfArguments(address a, address b, address c,
-        address d, address e, address f) public {
+    function thisFunctionHasLotsOfArguments(address _a, address _b, address _c,
+        address _d, address _e, address _f) public {
         doSomething();
     }
     
-    function thisFunctionHasLotsOfArguments(address a,
-                                            address b,
-                                            address c,
-                                            address d,
-                                            address e,
-                                            dress f) public {
+    function thisFunctionHasLotsOfArguments(address _a,
+                                            address _b,
+                                            address _c,
+                                            address _d,
+                                            address _e,
+                                            address _f) public {
         doSomething();
     }
     
     function thisFunctionHasLotsOfArguments(
-        address a,
-        address b,
-        address c,
-        address d,
-        address e,
-        address f) public {
+        address _a,
+        address _b,
+        address _c,
+        address _d,
+        address _e,
+        address _f) public {
         doSomething();
     }
 
@@ -456,9 +456,9 @@ dropped to its own line.
 Yes
 
     function thisFunctionNameIsReallyLong(
-      address x,
-      address y,
-      address z
+      address _x,
+      address _y,
+      address _z
     )
       public
       onlyowner
@@ -469,9 +469,9 @@ Yes
     }
     
     function thisFunctionNameIsReallyLong(
-      address x,
-      address y,
-      address z,
+      address _x,
+      address _y,
+      address _z,
     )
       public
       onlyowner
@@ -483,7 +483,7 @@ Yes
 
 No
 
-    function thisFunctionNameIsReallyLong(address x, address y, address z)
+    function thisFunctionNameIsReallyLong(address _x, address _y, address _z)
                                           public
                                           onlyowner
                                           priced
@@ -491,13 +491,13 @@ No
         doSomething();
     }
     
-    function thisFunctionNameIsReallyLong(address x, address y, address z)
+    function thisFunctionNameIsReallyLong(address _x, address _y, address _z)
         public onlyowner priced returns (address)
     {
         doSomething();
     }
     
-    function thisFunctionNameIsReallyLong(address x, address y, address z)
+    function thisFunctionNameIsReallyLong(address _x, address _y, address _z)
         public
         onlyowner
         priced
@@ -510,9 +510,9 @@ Multiline output parameters and return statements must follow the same style.
 Yes
 
     function thisFunctionNameIsReallyLong(
-      address a,
-      address b,
-      address c
+      address _a,
+      address _b,
+      address _c
     )
       public
       returns (
@@ -533,9 +533,9 @@ Yes
 No
 
     function thisFunctionNameIsReallyLong(
-        address a,
-        address b,
-        address c
+        address _a,
+        address _b,
+        address _c
     )
         public
         returns (address someAddressName,
@@ -600,19 +600,19 @@ Yes
       uint x;
     
       constructor(
-        uint param1,
-        uint param2,
-        uint param3,
-        uint param4,
-        uint param5
+        uint _param1,
+        uint _param2,
+        uint _param3,
+        uint _param4,
+        uint _param5
       )
-        B(param1)
-        C(param2, param3)
-        D(param4)
+        B(_param1)
+        C(_param2, _param3)
+        D(_param4)
         public
       {
         // do something with param5
-        x = param5;
+        x = _param5;
       }
     }
 
@@ -637,25 +637,25 @@ No
     contract A is B, C, D {
         uint x;
     
-        constructor(uint param1, uint param2, uint param3, uint param4, uint param5)
-        B(param1)
-        C(param2, param3)
-        D(param4)
+        constructor(uint _param1, uint _param2, uint _param3, uint _param4, uint _param5)
+        B(_param1)
+        C(_param2, _param3)
+        D(_param4)
         public
         {
-            x = param5;
+            x = _param5;
         }
     }
     
     contract X is B, C, D {
         uint x;
     
-        constructor(uint param1, uint param2, uint param3, uint param4, uint param5)
-            B(param1)
-            C(param2, param3)
-            D(param4)
+        constructor(uint _param1, uint _param2, uint _param3, uint _param4, uint _param5)
+            B(_param1)
+            C(_param2, _param3)
+            D(_param4)
             public {
-            x = param5;
+            x = _param5;
         }
 
 ### Mappings
@@ -813,12 +813,12 @@ Yes
       }
     
       function transferOwnership(
-        address newOwner
+        address _newOwner
       ) 
         public 
         onlyOwner
       {
-        owner = newOwner;
+        owner = _newOwner;
       }
     }
     
@@ -854,12 +854,12 @@ No
       }
     
       function transferOwnership(
-        address newOwner
+        address _newOwner
       ) 
         public
         onlyOwner
       {
-        owner = newOwner;
+        owner = _newOwner;
       }
     }
     
